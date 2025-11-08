@@ -26,14 +26,12 @@ int	main(int argc, char **argv)
 		{
 			fd = open(argv[i], O_RDONLY);	
 			if (fd < 0)
-			{
-				printf("%s\n", "File does not exist.");
-			}
+				printf("%s\n", "Erro ao abrir arquivo\n");
 			else
 			{
 				printf("%s\n", argv[i]);
 				line = get_next_line(fd);
-				while(line)
+				while (line)
 				{
 					printf("%s", line);
 					free(line);
@@ -41,7 +39,6 @@ int	main(int argc, char **argv)
 				}
 			}
 			printf("\n");
-			free(line);
 			close(fd);
 			i++;
 		}
